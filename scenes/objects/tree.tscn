@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://biqbysyrmeero"]
+
+[ext_resource type="Script" uid="uid://ca511mb82ohuq" path="res://scripts/objects/tree.gd" id="1_5qchx"]
+[ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="1_r6wkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfo5h"]
+size = Vector2(14, 16)
+
+[node name="Tree" type="StaticBody2D" unique_id=461559356]
+script = ExtResource("1_5qchx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=703415867]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_r6wkp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2031618338]
+shape = SubResource("RectangleShape2D_hfo5h")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=831966975]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1890374320]

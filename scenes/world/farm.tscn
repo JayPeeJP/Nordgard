@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ummolujfuff6" path="res://scenes/player/player.tscn" id="1_krvku"]
 [ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="2_hek10"]
 [ext_resource type="Script" uid="uid://chbc8hs4qh21w" path="res://scripts/player/player.gd" id="2_hfo5h"]
+[ext_resource type="PackedScene" uid="uid://biqbysyrmeero" path="res://scenes/objects/tree.tscn" id="4_hfo5h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyky5"]
 radius = 15.0
@@ -10,6 +11,7 @@ radius = 15.0
 [node name="Farm" type="Node2D" unique_id=2005990462]
 
 [node name="Player" parent="." unique_id=749195724 instance=ExtResource("1_krvku")]
+position = Vector2(62, 57)
 script = ExtResource("2_hfo5h")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Player" unique_id=1404743392]
@@ -20,3 +22,9 @@ texture = ExtResource("2_hek10")
 shape = SubResource("CapsuleShape2D_eyky5")
 
 [node name="Ground" type="Polygon2D" parent="." unique_id=975351349]
+
+[node name="Tree" parent="." unique_id=461559356 instance=ExtResource("4_hfo5h")]
+position = Vector2(309, 104)
+
+[node name="Tree2" parent="." unique_id=1334942613 instance=ExtResource("4_hfo5h")]
+position = Vector2(327, 252)
