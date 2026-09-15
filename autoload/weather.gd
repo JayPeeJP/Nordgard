@@ -27,9 +27,6 @@ func generate_daily_weather() -> void:
 			generate_autumn_weather()
 		"Vinter":
 			generate_winter_weather()
-
-	weather_changed.emit(current_weather, current_temperature)
-
 	print(
 		"Weather: ",
 		current_weather,
@@ -37,10 +34,11 @@ func generate_daily_weather() -> void:
 		current_temperature,
 		"°C"
 	)
+	weather_changed.emit(current_weather, current_temperature)
 
 
 func generate_spring_weather() -> void:
-	current_temperature = randf_range(2.0, 15.0)
+	current_temperature = randf_range(2.0, 28.0)
 
 	var roll := randf()
 
@@ -53,7 +51,7 @@ func generate_spring_weather() -> void:
 
 
 func generate_summer_weather() -> void:
-	current_temperature = randf_range(10.0, 27.0)
+	current_temperature = randf_range(5.0, 35.0)
 
 	var roll := randf()
 
