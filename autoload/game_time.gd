@@ -12,6 +12,7 @@ var day: int = 1
 var hour: int = 8
 var minute: int = 0
 var year: int = 1
+var total_day: int = 1
 
 var seasons: Array[String] = [
 	"Vår",
@@ -49,6 +50,7 @@ func advance_day() -> void:
 	var previous_season := get_season()
 
 	day += 1
+	total_day += 1
 
 	var days_per_year := days_per_season * seasons.size()
 

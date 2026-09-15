@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cmdo7q3l3ette"]
+
+[ext_resource type="Script" uid="uid://bh75oybl6qykg" path="res://scripts/objects/potato_plot.gd" id="1_i74ho"]
+[ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="2_rd1aq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i74ho"]
+size = Vector2(26, 26)
+
+[node name="PotatoPlot" type="StaticBody2D" unique_id=1871770989]
+script = ExtResource("1_i74ho")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=162735410]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_rd1aq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1376636406]
+shape = SubResource("RectangleShape2D_i74ho")

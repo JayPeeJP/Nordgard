@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://chbc8hs4qh21w" path="res://scripts/player/player.gd" id="2_hfo5h"]
 [ext_resource type="PackedScene" uid="uid://biqbysyrmeero" path="res://scenes/objects/tree.tscn" id="4_hfo5h"]
 [ext_resource type="PackedScene" uid="uid://b2h25me20dyjl" path="res://scenes/ui/hud.tscn" id="5_52ivh"]
+[ext_resource type="PackedScene" uid="uid://cmdo7q3l3ette" path="res://scenes/objects/potato_plot.tscn" id="6_rheot"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyky5"]
 radius = 15.0
@@ -35,3 +36,6 @@ offset_left = 948.0
 offset_top = 26.0
 offset_right = 948.0
 offset_bottom = 26.0
+
+[node name="PotatoPlot" parent="." unique_id=1186197693 instance=ExtResource("6_rheot")]
+position = Vector2(475, 56)

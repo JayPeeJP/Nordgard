@@ -31,6 +31,15 @@ func interact() -> void:
 	for body in bodies:
 		print("Found: ", body.name)
 
+		if body == self:
+			continue
+
+		if body.has_method("interact"):
+			print("Calling interact on: ", body.name)
+			body.interact()
+			return
+
 		if body.has_method("take_hit"):
+			print("Calling take_hit on: ", body.name)
 			body.take_hit()
 			return
