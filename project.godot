@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 Inventory="*uid://r62jvomg8pxr"
 GameTime="*uid://cn27i1megc4th"
+Weather="*uid://bb46x8cmhkxom"
 
 [display]
 
