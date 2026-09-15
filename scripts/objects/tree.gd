@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var health: int = 3
+@export var wood_amount: int = 5
 
 
 func take_hit() -> void:
@@ -12,5 +13,7 @@ func take_hit() -> void:
 
 
 func chop_down() -> void:
+	Inventory.add_item("wood", wood_amount)
+
 	print("Tree chopped down!")
 	queue_free()

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="2_hek10"]
 [ext_resource type="Script" uid="uid://chbc8hs4qh21w" path="res://scripts/player/player.gd" id="2_hfo5h"]
 [ext_resource type="PackedScene" uid="uid://biqbysyrmeero" path="res://scenes/objects/tree.tscn" id="4_hfo5h"]
+[ext_resource type="PackedScene" uid="uid://b2h25me20dyjl" path="res://scenes/ui/hud.tscn" id="5_52ivh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyky5"]
 radius = 15.0
@@ -28,3 +29,9 @@ position = Vector2(309, 104)
 
 [node name="Tree2" parent="." unique_id=1334942613 instance=ExtResource("4_hfo5h")]
 position = Vector2(327, 252)
+
+[node name="HUD" parent="." unique_id=1761938174 instance=ExtResource("5_52ivh")]
+offset_left = 948.0
+offset_top = 26.0
+offset_right = 948.0
+offset_bottom = 26.0

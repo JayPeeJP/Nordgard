@@ -14,6 +14,10 @@ config/name="Nordgard"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Inventory="*uid://r62jvomg8pxr"
+
 [display]
 
 window/stretch/mode="canvas_items"
