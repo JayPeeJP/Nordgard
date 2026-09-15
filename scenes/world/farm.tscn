@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b6x3m43i2xwaj"]
+
+[ext_resource type="PackedScene" uid="uid://ummolujfuff6" path="res://scenes/player/player.tscn" id="1_krvku"]
+[ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="2_hek10"]
+[ext_resource type="Script" uid="uid://chbc8hs4qh21w" path="res://scripts/player/player.gd" id="2_hfo5h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyky5"]
+radius = 15.0
+
+[node name="Farm" type="Node2D" unique_id=2005990462]
+
+[node name="Player" parent="." unique_id=749195724 instance=ExtResource("1_krvku")]
+script = ExtResource("2_hfo5h")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player" unique_id=1404743392]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_hek10")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=1217591711]
+shape = SubResource("CapsuleShape2D_eyky5")
+
+[node name="Ground" type="Polygon2D" parent="." unique_id=975351349]

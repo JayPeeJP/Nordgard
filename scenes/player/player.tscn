@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ummolujfuff6"]
+
+[node name="Player" type="CharacterBody2D" unique_id=749195724]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1260959902]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1936198745]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1137268976]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1021627374]
