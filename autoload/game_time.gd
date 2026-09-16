@@ -5,8 +5,8 @@ signal day_changed(day: int)
 signal season_changed(season: String)
 signal year_changed(year: int)
 
-@export var real_seconds_per_game_minute: float = 0.01
-@export var days_per_season: int = 2
+@export var real_seconds_per_game_minute: float = 0.001
+@export var days_per_season: int = 28
 
 var day: int = 1
 var hour: int = 8

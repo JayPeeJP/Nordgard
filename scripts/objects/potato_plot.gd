@@ -20,7 +20,9 @@ enum State {
 var state: State = State.EMPTY
 var planted_day: int = 0
 var crop_health: float = 100.0
-
+var soil_moisture: float = 70.0
+var dry_stress_days: int = 0
+var wet_stress_days: int = 0
 
 func _ready() -> void:
 	Weather.weather_changed.connect(_on_weather_changed)
@@ -60,10 +62,13 @@ func plant() -> void:
 
 
 func _on_weather_changed(_weather: String, _temperature: float) -> void:
+	update_soil_moisture()
+	
 	if state == State.EMPTY or state == State.ROTTEN or state == State.DEAD:
 		return
 
 	apply_weather_effects()
+	apply_moisture_effects()
 
 	if crop_health <= 0:
 		crop_health = 0
@@ -98,7 +103,66 @@ func apply_weather_effects() -> void:
 			damage,
 			" helse."
 		)
+		
+func apply_moisture_effects() -> void:
+	if soil_moisture < 35.0:
+		dry_stress_days += 1
+		wet_stress_days = 0
 
+	elif soil_moisture > 85.0:
+		wet_stress_days += 1
+		dry_stress_days = 0
+
+	else:
+		dry_stress_days = 0
+		wet_stress_days = 0
+
+	apply_dry_stress()
+	apply_wet_stress()
+
+func apply_dry_stress() -> void:
+	if dry_stress_days < 2:
+		return
+
+	var damage: float = 0.0
+
+	if soil_moisture <= 10.0:
+		damage = 20.0
+	elif soil_moisture <= 20.0:
+		damage = 10.0
+	elif soil_moisture < 35.0:
+		damage = 5.0
+
+	if damage > 0:
+		crop_health -= damage
+
+		print(
+			"Tørke skadet potetavlingen med ",
+			damage,
+			" helse. Tørre dager: ",
+			dry_stress_days
+		)
+
+func apply_wet_stress() -> void:
+	if wet_stress_days < 3:
+		return
+
+	var damage: float = 0.0
+
+	if soil_moisture >= 95.0:
+		damage = 10.0
+	elif soil_moisture > 85.0:
+		damage = 5.0
+
+	if damage > 0:
+		crop_health -= damage
+
+		print(
+			"For våt jord skadet potetavlingen med ",
+			damage,
+			" helse. Våte dager: ",
+			wet_stress_days
+		)
 
 func update_growth_stage() -> void:
 	var age := get_crop_age()
@@ -121,6 +185,41 @@ func update_growth_stage() -> void:
 	else:
 		state = State.PLANTED
 
+func update_soil_moisture() -> void:
+	var temperature := Weather.current_temperature
+	var weather := Weather.current_weather
+
+	var moisture_change: float = -5.0
+
+	if temperature > 25.0:
+		moisture_change -= 5.0
+	elif temperature > 20.0:
+		moisture_change -= 2.0
+
+	match weather:
+		"Regn":
+			moisture_change += 25.0
+
+		"Storm":
+			moisture_change += 35.0
+
+		"Snø":
+			moisture_change += 5.0
+
+		"Snøstorm":
+			moisture_change += 10.0
+
+	print("Endring i jord: ", moisture_change)
+
+	soil_moisture += moisture_change
+	soil_moisture = clampf(soil_moisture, 0.0, 100.0)
+
+	print(
+		"Jordfuktighet: ",
+		roundi(soil_moisture),
+		"%"
+	)
+
 
 func harvest() -> void:
 	var amount := calculate_harvest()
@@ -137,11 +236,6 @@ func harvest() -> void:
 	)
 
 	reset_plot()
-
-func clear_rotten_crop() -> void:
-	print("Den råtne potetavlingen ble fjernet.")
-	reset_plot()
-
 
 func calculate_harvest() -> int:
 	var amount: int
@@ -169,12 +263,18 @@ func calculate_harvest() -> int:
 func clear_dead_crop() -> void:
 	print("Død potetavling fjernet.")
 	reset_plot()
+	
+func clear_rotten_crop() -> void:
+	print("Råtten potetavling fjernet.")
+	reset_plot()
 
 
 func reset_plot() -> void:
 	state = State.EMPTY
 	planted_day = 0
 	crop_health = 100.0
+	dry_stress_days = 0
+	wet_stress_days = 0
 	update_visual()
 
 
@@ -191,7 +291,13 @@ func print_crop_status() -> void:
 		get_crop_age(),
 		" dager | Helse: ",
 		roundi(crop_health),
-		"% | Stadie: ",
+		"% | Jord: ",
+		roundi(soil_moisture),
+		"% | Tørkestress: ",
+		dry_stress_days,
+		" | Vått stress: ",
+		wet_stress_days,
+		" | Stadie: ",
 		State.keys()[state]
 	)
 
@@ -215,6 +321,12 @@ func update_visual() -> void:
 
 		State.READY:
 			modulate = Color(0.85, 0.75, 0.25)
+			
+		State.OVERRIPE:
+			modulate = Color(0.65, 0.50, 0.15)
+
+		State.ROTTEN:
+			modulate = Color(0.20, 0.15, 0.10)
 
 		State.DEAD:
 			modulate = Color(0.25, 0.20, 0.15)
