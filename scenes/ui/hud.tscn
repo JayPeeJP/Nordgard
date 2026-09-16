@@ -41,3 +41,7 @@ text = "RESSURSER"
 [node name="WoodLabel" type="Label" parent="InventoryPanel/MarginContainer/VBoxContainer" unique_id=1239624205]
 layout_mode = 2
 text = "Ved: 0"
+
+[node name="ToolLabel" type="Label" parent="InventoryPanel/MarginContainer/VBoxContainer" unique_id=786912166]
+layout_mode = 2
+text = "Verktøy: Ingen"

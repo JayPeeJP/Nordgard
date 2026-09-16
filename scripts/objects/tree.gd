@@ -5,6 +5,10 @@ extends StaticBody2D
 
 
 func take_hit() -> void:
+	if ToolManager.get_selected_tool() != ToolManager.Tool.AXE:
+		print("Du trenger en øks for å hugge treet.")
+		return
+
 	health -= 1
 	print("Tree hit! Health: ", health)
 

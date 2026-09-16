@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://chbc8hs4qh21w" path="res://scripts/player/player.gd" id="2_hfo5h"]
 [ext_resource type="PackedScene" uid="uid://biqbysyrmeero" path="res://scenes/objects/tree.tscn" id="4_hfo5h"]
 [ext_resource type="PackedScene" uid="uid://b2h25me20dyjl" path="res://scenes/ui/hud.tscn" id="5_52ivh"]
+[ext_resource type="PackedScene" uid="uid://cmdo7q3l3ette" path="res://scenes/objects/potato_plot.tscn" id="6_rheot"]
 [ext_resource type="PackedScene" uid="uid://c0iovnqsv5gcc" path="res://scenes/objects/farm_plot.tscn" id="7_slgxh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyky5"]
@@ -34,6 +35,9 @@ position = Vector2(327, 252)
 [node name="HUD" parent="." unique_id=1761938174 instance=ExtResource("5_52ivh")]
 offset_left = 964.0
 offset_right = 964.0
+
+[node name="PotatoPlot" parent="." unique_id=1186197693 instance=ExtResource("6_rheot")]
+position = Vector2(475, 56)
 
 [node name="FarmPlot" parent="." unique_id=1629488635 instance=ExtResource("7_slgxh")]
 position = Vector2(519, 220)

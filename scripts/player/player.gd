@@ -21,6 +21,21 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		interact()
 
+	if event.is_action_pressed("tool_none"):
+		ToolManager.select_tool(ToolManager.Tool.NONE)
+
+	elif event.is_action_pressed("tool_axe"):
+		ToolManager.select_tool(ToolManager.Tool.AXE)
+
+	elif event.is_action_pressed("tool_hoe"):
+		ToolManager.select_tool(ToolManager.Tool.HOE)
+
+	elif event.is_action_pressed("tool_watering_can"):
+		ToolManager.select_tool(ToolManager.Tool.WATERING_CAN)
+
+	elif event.is_action_pressed("tool_shovel"):
+		ToolManager.select_tool(ToolManager.Tool.SHOVEL)
+
 
 func interact() -> void:
 	print("E pressed!")

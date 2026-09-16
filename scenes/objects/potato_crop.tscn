@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://vtbas7w0fjht"]
+
+[ext_resource type="Script" uid="uid://dlh3dla28q52m" path="res://scripts/objects/potato_crop.gd" id="1_pabrh"]
+[ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="2_18evx"]
+
+[node name="PotatoCrop" type="Node2D" unique_id=1786427765]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_pabrh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=440306597]
+texture = ExtResource("2_18evx")

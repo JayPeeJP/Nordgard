@@ -47,7 +47,10 @@ func interact() -> void:
 			clear_dead_crop()
 
 		_:
-			print_crop_status()
+			if ToolManager.get_selected_tool() == ToolManager.Tool.WATERING_CAN:
+				water()
+			else:
+				print_crop_status()
 
 
 func plant() -> void:
@@ -59,6 +62,21 @@ func plant() -> void:
 	print_crop_status()
 
 	update_visual()
+	
+	
+func water() -> void:
+	var water_amount: float = 20.0
+
+	soil_moisture += water_amount
+	soil_moisture = clampf(soil_moisture, 0.0, 100.0)
+
+	print(
+		"Jorden ble vannet. Jordfuktighet: ",
+		roundi(soil_moisture),
+		"%"
+	)
+
+	print_crop_status()
 
 
 func _on_weather_changed(_weather: String, _temperature: float) -> void:
