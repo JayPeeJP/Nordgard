@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0iovnqsv5gcc"]
 
 [ext_resource type="Script" uid="uid://bhsmvv6a7x1ri" path="res://scripts/objects/farm_plot.gd" id="1_8nj3p"]
-[ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="2_xfqxp"]
+[ext_resource type="Texture2D" uid="uid://wl720epemybh" path="res://assets/environment/farmplot.png" id="2_8nj3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyky5"]
 size = Vector2(39, 38)
@@ -10,9 +10,8 @@ size = Vector2(39, 38)
 script = ExtResource("1_8nj3p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1765360250]
-position = Vector2(0.5000019, 1.9073486e-06)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_xfqxp")
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_8nj3p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=272593924]
 position = Vector2(0.5, 0)

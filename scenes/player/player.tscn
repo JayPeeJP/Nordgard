@@ -6,7 +6,7 @@
 size = Vector2(28, 26)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x7p2l"]
-radius = 30.0
+radius = 40.0
 
 [node name="Player" type="CharacterBody2D" unique_id=749195724]
 z_index = 1
@@ -25,5 +25,4 @@ shape = SubResource("RectangleShape2D_52ivh")
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1021627374]
-scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_x7p2l")

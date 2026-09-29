@@ -12,7 +12,10 @@ func set_slot(slot: InventorySlot) -> void:
 	else:
 		amount_label.text = ""
 
+	tooltip_text = slot.item.display_name
+
 
 func clear_slot() -> void:
 	item_icon.texture = null
 	amount_label.text = ""
+	tooltip_text = ""

@@ -16,12 +16,14 @@ theme_override_constants/margin_bottom = 5
 [node name="SlotContent" type="Control" parent="MarginContainer" unique_id=883090521]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ItemIcon" type="TextureRect" parent="MarginContainer/SlotContent" unique_id=823714454]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
 offset_right = 52.0
 offset_bottom = 52.0
+mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
