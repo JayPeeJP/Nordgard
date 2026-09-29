@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://dh1n0f7arexw1"]
 
 [ext_resource type="Script" uid="uid://dwy1ben4eek8m" path="res://scripts/objects/carrot_crop.gd" id="1_pkop6"]
+[ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="2_flni3"]
 
-[node name="CarrotCrop" type="Node2D" unique_id=385108839]
+[node name="CarrotCrop" type="Node2D" unique_id=1006444792]
 script = ExtResource("1_pkop6")
 days_to_grow = 6
 max_harvest = 4
 crop_name = "Gulrot"
 harvest_item_id = "carrot"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=688727657]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959190100]
+position = Vector2(-3.8146973e-06, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_flni3")

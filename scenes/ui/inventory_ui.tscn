@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dqe6aybnoblaa"]
+
+[ext_resource type="Script" uid="uid://c0dl8wni0xw42" path="res://scripts/ui/inventory_ui.gd" id="1_7nagc"]
+
+[node name="InventoryUi" type="PanelContainer" unique_id=1983313242]
+script = ExtResource("1_7nagc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1842959226]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1757043808]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1187790262]
+layout_mode = 2
+text = "Inventory"
+
+[node name="SlotGrid" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1552415594]
+layout_mode = 2
+columns = 5

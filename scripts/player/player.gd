@@ -6,6 +6,10 @@ extends CharacterBody2D
 
 
 func _physics_process(_delta: float) -> void:
+	if Inventory.is_open:
+		velocity = Vector2.ZERO
+		return
+
 	var direction := Input.get_vector(
 		"move_left",
 		"move_right",
@@ -18,6 +22,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Inventory.is_open:
+		return
+
 	if event.is_action_pressed("interact"):
 		interact()
 

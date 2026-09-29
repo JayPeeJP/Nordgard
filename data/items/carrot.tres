@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dupuk41fd7tdk"]
+
+[ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_6g0dw"]
+
+[resource]
+script = ExtResource("1_6g0dw")
+item_id = "carrot"
+display_name = "Gulrot"
+max_stack = 20
+metadata/_custom_type_script = "uid://c5ndfpwokovqg"

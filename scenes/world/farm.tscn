@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://chbc8hs4qh21w" path="res://scripts/player/player.gd" id="2_hfo5h"]
 [ext_resource type="PackedScene" uid="uid://biqbysyrmeero" path="res://scenes/objects/tree.tscn" id="4_hfo5h"]
 [ext_resource type="PackedScene" uid="uid://b2h25me20dyjl" path="res://scenes/ui/hud.tscn" id="5_52ivh"]
+[ext_resource type="PackedScene" uid="uid://dqe6aybnoblaa" path="res://scenes/ui/inventory_ui.tscn" id="5_rheot"]
 [ext_resource type="PackedScene" uid="uid://c0iovnqsv5gcc" path="res://scenes/objects/farm_plot.tscn" id="7_slgxh"]
 
 [node name="Farm" type="Node2D" unique_id=2005990462]
@@ -23,6 +24,11 @@ position = Vector2(327, 252)
 [node name="HUD" parent="." unique_id=1761938174 instance=ExtResource("5_52ivh")]
 offset_left = 964.0
 offset_right = 964.0
+
+[node name="InventoryUi" parent="." unique_id=1983313242 instance=ExtResource("5_rheot")]
+offset_left = 482.0
+offset_right = 763.0
+offset_bottom = 119.0
 
 [node name="FarmPlot" parent="." unique_id=1629488635 instance=ExtResource("7_slgxh")]
 position = Vector2(501, 233)

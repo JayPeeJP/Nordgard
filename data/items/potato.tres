@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bprxkpxmfp833"]
+
+[ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_d2bqp"]
+
+[resource]
+script = ExtResource("1_d2bqp")
+item_id = "potato"
+display_name = "Potet"
+max_stack = 20
+metadata/_custom_type_script = "uid://c5ndfpwokovqg"

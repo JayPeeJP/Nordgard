@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cm8m1m83q0tvg"]
+
+[ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_pkq13"]
+
+[resource]
+script = ExtResource("1_pkq13")
+item_id = "wood"
+display_name = "Ved"
+max_stack = 20
+metadata/_custom_type_script = "uid://c5ndfpwokovqg"
