@@ -16,11 +16,8 @@ var item_database: Dictionary = {
 
 func _ready() -> void:
 	add_item("potato", 5)
-	add_item("carrot", 5)
-
-	var remaining := add_item("wood", 200)
-
-	print("Fikk ikke plass til: ", remaining)
+	add_item("carrot", 15)
+	add_item("wood", 160)
 
 
 func add_item(item_id: String, amount: int = 1) -> int:

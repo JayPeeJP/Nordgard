@@ -55,9 +55,20 @@ func interact() -> void:
 	var bodies := interaction_area.get_overlapping_bodies()
 	print("Bodies found: ", bodies.size())
 
+	# WorldItems har førsteprioritet
 	for body in bodies:
-		print("Found: ", body.name)
+		if body is WorldItem:
+			print(
+				"Picking up: ",
+				body.item_data.display_name,
+				" x",
+				body.amount
+			)
+			body.interact()
+			return
 
+	# Andre interaksjoner etterpå
+	for body in bodies:
 		if body == self:
 			continue
 

@@ -22,6 +22,8 @@ position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_52ivh")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1137268976]
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1021627374]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_x7p2l")

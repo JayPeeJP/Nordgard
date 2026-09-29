@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2h25me20dyjl" path="res://scenes/ui/hud.tscn" id="5_52ivh"]
 [ext_resource type="PackedScene" uid="uid://dqe6aybnoblaa" path="res://scenes/ui/inventory_ui.tscn" id="5_rheot"]
 [ext_resource type="PackedScene" uid="uid://c0iovnqsv5gcc" path="res://scenes/objects/farm_plot.tscn" id="7_slgxh"]
+[ext_resource type="PackedScene" uid="uid://kw0w8qd1ct57" path="res://scenes/objects/world_item.tscn" id="7_y42rm"]
 
 [node name="Farm" type="Node2D" unique_id=2005990462]
 
@@ -20,6 +21,9 @@ position = Vector2(309, 104)
 
 [node name="Tree2" parent="." unique_id=1334942613 instance=ExtResource("4_hfo5h")]
 position = Vector2(327, 252)
+
+[node name="WorldItem" parent="." unique_id=72825659 instance=ExtResource("7_y42rm")]
+position = Vector2(77, 244)
 
 [node name="HUD" parent="." unique_id=1761938174 instance=ExtResource("5_52ivh")]
 offset_left = 964.0

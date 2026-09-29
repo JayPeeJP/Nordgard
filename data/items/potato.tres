@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bprxkpxmfp833"]
 
+[ext_resource type="Texture2D" uid="uid://dqto01mox12db" path="res://assets/items/icons/potato.png" id="1_8nc4e"]
 [ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_d2bqp"]
 
 [resource]
@@ -7,4 +8,5 @@ script = ExtResource("1_d2bqp")
 item_id = "potato"
 display_name = "Potet"
 max_stack = 20
+icon = ExtResource("1_8nc4e")
 metadata/_custom_type_script = "uid://c5ndfpwokovqg"

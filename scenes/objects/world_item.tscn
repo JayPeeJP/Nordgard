@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://kw0w8qd1ct57"]
+
+[ext_resource type="Script" uid="uid://dqhg2lgrewdt2" path="res://scripts/objects/world_item.gd" id="1_md5rf"]
+[ext_resource type="Resource" uid="uid://cm8m1m83q0tvg" path="res://data/items/wood.tres" id="2_owred"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eyky5"]
+radius = 12.0
+
+[node name="WorldItem" type="StaticBody2D" unique_id=72825659]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_md5rf")
+item_data = ExtResource("2_owred")
+amount = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2017037816]
+scale = Vector2(0.1, 0.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1074672390]
+shape = SubResource("CircleShape2D_eyky5")

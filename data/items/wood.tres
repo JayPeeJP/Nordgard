@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cm8m1m83q0tvg"]
 
 [ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_pkq13"]
+[ext_resource type="Texture2D" uid="uid://b0sve0dpp183q" path="res://assets/items/icons/wood.png" id="1_qnvr4"]
 
 [resource]
 script = ExtResource("1_pkq13")
 item_id = "wood"
 display_name = "Ved"
 max_stack = 20
+icon = ExtResource("1_qnvr4")
 metadata/_custom_type_script = "uid://c5ndfpwokovqg"

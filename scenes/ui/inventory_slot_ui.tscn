@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://r1kp46k0rapj" path="res://scripts/ui/inventory_slot_ui.gd" id="1_x57yu"]
 
 [node name="InventorySlotUi" type="PanelContainer" unique_id=780391834]
-custom_minimum_size = Vector2(100, 70)
+custom_minimum_size = Vector2(64, 64)
 script = ExtResource("1_x57yu")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1079226203]
@@ -13,13 +13,22 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1444955021]
+[node name="SlotContent" type="Control" parent="MarginContainer" unique_id=883090521]
+custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
 
-[node name="ItemNameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=889944713]
-layout_mode = 2
-text = "Tom"
+[node name="ItemIcon" type="TextureRect" parent="MarginContainer/SlotContent" unique_id=823714454]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 52.0
+offset_bottom = 52.0
+expand_mode = 1
+stretch_mode = 5
 
-[node name="AmountLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1843368939]
-layout_mode = 2
+[node name="AmountLabel" type="Label" parent="MarginContainer/SlotContent" unique_id=1843368939]
+layout_mode = 0
+offset_right = 52.0
+offset_bottom = 52.0
 text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2

@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://biqbysyrmeero"]
 
 [ext_resource type="Script" uid="uid://ca511mb82ohuq" path="res://scripts/objects/tree.gd" id="1_5qchx"]
-[ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="1_r6wkp"]
+[ext_resource type="Texture2D" uid="uid://yhmfblsc63kc" path="res://assets/items/icons/tree.png" id="2_5qchx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfo5h"]
-size = Vector2(14, 16)
+size = Vector2(23, 28)
 
 [node name="Tree" type="StaticBody2D" unique_id=461559356]
 z_index = 2
 script = ExtResource("1_5qchx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=703415867]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_r6wkp")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_5qchx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2031618338]
+position = Vector2(-0.5, 25)
 shape = SubResource("RectangleShape2D_hfo5h")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=831966975]

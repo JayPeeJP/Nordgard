@@ -1,6 +1,10 @@
 class_name Crop
 extends Node2D
 
+const WORLD_ITEM_SCENE := preload(
+	"res://scenes/objects/world_item.tscn"
+)
+
 signal harvested
 signal cleared
 
@@ -165,6 +169,25 @@ func clear_crop() -> void:
 	queue_free()
 
 
+func drop_harvest(amount: int) -> void:
+	var item_data: ItemData = Inventory.item_database[harvest_item_id]
+
+	var world_item := WORLD_ITEM_SCENE.instantiate()
+
+	get_tree().current_scene.add_child(world_item)
+
+	world_item.global_position = global_position + Vector2(24, 0)
+	world_item.setup(item_data, amount)
+
+	print(
+		"Ikke plass i inventory. ",
+		amount,
+		" ",
+		item_data.display_name.to_lower(),
+		" ligger igjen på bakken."
+	)
+
+
 func harvest() -> void:
 	if state != State.READY and state != State.OVERRIPE:
 		print("Avlingen er ikke klar for høsting.")
@@ -173,7 +196,13 @@ func harvest() -> void:
 	var amount := calculate_harvest()
 
 	if amount > 0:
-		Inventory.add_item(harvest_item_id, amount)
+		var remaining := Inventory.add_item(
+			harvest_item_id,
+			amount
+		)
+
+		if remaining > 0:
+			drop_harvest(remaining)
 
 		print(
 			"Du høstet ",
