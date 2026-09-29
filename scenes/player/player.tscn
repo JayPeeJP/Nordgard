@@ -1,13 +1,23 @@
 [gd_scene format=3 uid="uid://ummolujfuff6"]
 
+[ext_resource type="Texture2D" uid="uid://dus8tn87pdind" path="res://assets/characters/player.png" id="1_8afob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52ivh"]
+size = Vector2(28, 54)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_x7p2l"]
-radius = 50.0
+radius = 30.0
 
 [node name="Player" type="CharacterBody2D" unique_id=749195724]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1260959902]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_8afob")
+hframes = 2
+vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1936198745]
+shape = SubResource("RectangleShape2D_52ivh")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1137268976]
 

@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-const POTATO_CROP = preload("res://scenes/objects/potato_crop.tscn")
 
 enum SoilState {
 	UNTILLED,
@@ -81,7 +80,13 @@ func interact() -> void:
 		return
 
 	if current_crop == null:
-		plant_crop()
+		var crop_data := CropManager.get_selected_crop_data()
+
+		plant_crop(
+			crop_data["scene"],
+			crop_data["item_id"],
+			crop_data["name"]
+		)
 		return
 
 	if current_crop.has_method("interact"):
@@ -101,7 +106,11 @@ func till_soil() -> void:
 	update_visual()
 
 
-func plant_crop() -> void:
+func plant_crop(
+	crop_scene: PackedScene,
+	item_id: String,
+	crop_name: String
+) -> void:
 	if soil_state != SoilState.TILLED:
 		print("Jorden må bearbeides først.")
 		return
@@ -110,7 +119,14 @@ func plant_crop() -> void:
 		print("Det står allerede en plante her.")
 		return
 
-	var crop := POTATO_CROP.instantiate()
+	if not Inventory.has_item(item_id, 1):
+		print("Du har ikke det du trenger for å plante.")
+		return
+
+	if not Inventory.remove_item(item_id, 1):
+		return
+
+	var crop := crop_scene.instantiate()
 
 	crop.farm_plot = self
 	crop.harvested.connect(_on_crop_harvested)
@@ -120,9 +136,7 @@ func plant_crop() -> void:
 
 	current_crop = crop
 
-	print("Potet plantet i FarmPlot.")
-
-	print("Potet plantet i FarmPlot.")
+	print(crop_name, " plantet.")
 
 
 func print_soil_status() -> void:

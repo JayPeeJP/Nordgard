@@ -1,27 +1,16 @@
 [gd_scene format=3 uid="uid://b6x3m43i2xwaj"]
 
 [ext_resource type="PackedScene" uid="uid://ummolujfuff6" path="res://scenes/player/player.tscn" id="1_krvku"]
-[ext_resource type="Texture2D" uid="uid://beoxusl8peisn" path="res://icon.svg" id="2_hek10"]
 [ext_resource type="Script" uid="uid://chbc8hs4qh21w" path="res://scripts/player/player.gd" id="2_hfo5h"]
 [ext_resource type="PackedScene" uid="uid://biqbysyrmeero" path="res://scenes/objects/tree.tscn" id="4_hfo5h"]
 [ext_resource type="PackedScene" uid="uid://b2h25me20dyjl" path="res://scenes/ui/hud.tscn" id="5_52ivh"]
 [ext_resource type="PackedScene" uid="uid://c0iovnqsv5gcc" path="res://scenes/objects/farm_plot.tscn" id="7_slgxh"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyky5"]
-radius = 15.0
 
 [node name="Farm" type="Node2D" unique_id=2005990462]
 
 [node name="Player" parent="." unique_id=749195724 instance=ExtResource("1_krvku")]
 position = Vector2(62, 57)
 script = ExtResource("2_hfo5h")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Player" unique_id=1404743392]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_hek10")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=1217591711]
-shape = SubResource("CapsuleShape2D_eyky5")
 
 [node name="Ground" type="Polygon2D" parent="." unique_id=975351349]
 
@@ -36,4 +25,19 @@ offset_left = 964.0
 offset_right = 964.0
 
 [node name="FarmPlot" parent="." unique_id=1629488635 instance=ExtResource("7_slgxh")]
-position = Vector2(519, 220)
+position = Vector2(501, 233)
+
+[node name="FarmPlot6" parent="." unique_id=722663333 instance=ExtResource("7_slgxh")]
+position = Vector2(597, 284)
+
+[node name="FarmPlot5" parent="." unique_id=674418888 instance=ExtResource("7_slgxh")]
+position = Vector2(551, 284)
+
+[node name="FarmPlot4" parent="." unique_id=1655722815 instance=ExtResource("7_slgxh")]
+position = Vector2(502, 284)
+
+[node name="FarmPlot3" parent="." unique_id=615946809 instance=ExtResource("7_slgxh")]
+position = Vector2(596, 233)
+
+[node name="FarmPlot2" parent="." unique_id=807238357 instance=ExtResource("7_slgxh")]
+position = Vector2(550, 233)

@@ -42,6 +42,16 @@ text = "RESSURSER"
 layout_mode = 2
 text = "Ved: 0"
 
+[node name="PotatoLabel" type="Label" parent="InventoryPanel/MarginContainer/VBoxContainer" unique_id=483837750]
+layout_mode = 2
+text = "Poteter: 0"
+
+[node name="CarrotLabel" type="Label" parent="InventoryPanel/MarginContainer/VBoxContainer" unique_id=1889072332]
+layout_mode = 2
+
 [node name="ToolLabel" type="Label" parent="InventoryPanel/MarginContainer/VBoxContainer" unique_id=786912166]
 layout_mode = 2
 text = "Verktøy: Ingen"
+
+[node name="CropLabel" type="Label" parent="InventoryPanel/MarginContainer/VBoxContainer" unique_id=364158722]
+layout_mode = 2

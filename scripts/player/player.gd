@@ -36,6 +36,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("tool_shovel"):
 		ToolManager.select_tool(ToolManager.Tool.SHOVEL)
 
+	if event.is_action_pressed("crop_potato"):
+		CropManager.select_crop(CropManager.CropType.POTATO)
+	elif event.is_action_pressed("crop_carrot"):
+		CropManager.select_crop(CropManager.CropType.CARROT)
+
 
 func interact() -> void:
 	print("E pressed!")

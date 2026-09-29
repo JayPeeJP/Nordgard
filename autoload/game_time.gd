@@ -68,7 +68,7 @@ func advance_day() -> void:
 
 
 func get_season_index() -> int:
-	return int((day - 1) / days_per_season)
+	return int(float(day - 1) / float(days_per_season))
 
 
 func get_season() -> String:

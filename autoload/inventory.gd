@@ -5,6 +5,10 @@ signal inventory_changed
 var items: Dictionary = {}
 
 
+func _ready() -> void:
+	add_item("potato", 5)
+	add_item("carrot", 5)
+
 func add_item(item_id: String, amount: int = 1) -> void:
 	if items.has(item_id):
 		items[item_id] += amount

@@ -9,10 +9,7 @@ func _ready() -> void:
 	update_growth_stage()
 	update_visual()
 
-	print(
-		"PotatoCrop plantet på dag ",
-		planted_day
-	)
+	print("CarrotCrop plantet på dag ", planted_day)
 
 
 func _on_day_changed(_day: int) -> void:
@@ -27,7 +24,7 @@ func _on_day_changed(_day: int) -> void:
 		crop_health = 0
 		state = State.DEAD
 
-		print("Potetavlingen døde.")
+		print("Gulrotavlingen døde.")
 
 		update_visual()
 		print_crop_status()
@@ -57,7 +54,7 @@ func print_crop_status() -> void:
 		moisture = farm_plot.soil_moisture
 
 	print(
-		"PotatoCrop | Alder: ",
+		"Gulrot | Alder: ",
 		get_crop_age(),
 		" dager | Helse: ",
 		roundi(crop_health),
@@ -76,24 +73,17 @@ func update_visual() -> void:
 	match state:
 		State.PLANTED:
 			modulate = Color(0.45, 0.30, 0.15)
-
 		State.SPROUT:
-			modulate = Color(0.55, 0.75, 0.35)
-
+			modulate = Color(0.60, 0.80, 0.35)
 		State.YOUNG:
-			modulate = Color(0.30, 0.70, 0.25)
-
+			modulate = Color(0.40, 0.75, 0.25)
 		State.MATURE:
-			modulate = Color(0.20, 0.60, 0.20)
-
+			modulate = Color(0.25, 0.65, 0.20)
 		State.READY:
-			modulate = Color(0.85, 0.75, 0.25)
-		
+			modulate = Color(0.90, 0.65, 0.20)
 		State.OVERRIPE:
-			modulate = Color(0.65, 0.50, 0.15)
-
+			modulate = Color(0.65, 0.45, 0.15)
 		State.ROTTEN:
 			modulate = Color(0.25, 0.18, 0.08)
-
 		State.DEAD:
 			modulate = Color(0.15, 0.12, 0.08)

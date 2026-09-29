@@ -4,7 +4,10 @@ extends Control
 @onready var time_label: Label = $InventoryPanel/MarginContainer/VBoxContainer/TimeLabel
 @onready var weather_label: Label = $InventoryPanel/MarginContainer/VBoxContainer/WeatherLabel
 @onready var wood_label: Label = $InventoryPanel/MarginContainer/VBoxContainer/WoodLabel
+@onready var potato_label: Label = $InventoryPanel/MarginContainer/VBoxContainer/PotatoLabel
+@onready var carrot_label: Label = $InventoryPanel/MarginContainer/VBoxContainer/CarrotLabel
 @onready var tool_label: Label = $InventoryPanel/MarginContainer/VBoxContainer/ToolLabel
+@onready var crop_label: Label = $InventoryPanel/MarginContainer/VBoxContainer/CropLabel
 
 
 func _ready() -> void:
@@ -12,6 +15,7 @@ func _ready() -> void:
 	GameTime.time_changed.connect(update_time)
 	Weather.weather_changed.connect(update_weather)
 	ToolManager.tool_changed.connect(update_tool)
+	CropManager.crop_changed.connect(update_crop)
 
 	update_inventory()
 	update_time(GameTime.day, GameTime.hour, GameTime.minute)
@@ -20,11 +24,17 @@ func _ready() -> void:
 		Weather.current_temperature
 	)
 	update_tool(ToolManager.get_selected_tool())
+	update_crop(CropManager.selected_crop)
 
 
 func update_inventory() -> void:
 	var wood := Inventory.get_amount("wood")
+	var potatoes := Inventory.get_amount("potato")
+	var carrots := Inventory.get_amount("carrot")
+
 	wood_label.text = "Ved: " + str(wood)
+	potato_label.text = "Poteter: " + str(potatoes)
+	carrot_label.text = "Gulrøtter: " + str(carrots)
 
 
 func update_time(_day: int, _hour: int, _minute: int) -> void:
@@ -64,3 +74,9 @@ func update_tool(tool: ToolManager.Tool) -> void:
 
 		ToolManager.Tool.SHOVEL:
 			tool_label.text = "Verktøy: Spade"
+
+
+func update_crop(_crop: CropManager.CropType) -> void:
+	var crop_data := CropManager.get_selected_crop_data()
+
+	crop_label.text = "Valgt avling: " + crop_data["name"]

@@ -6,6 +6,8 @@
 [node name="PotatoCrop" type="Node2D" unique_id=1786427765]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_pabrh")
+crop_name = "Potet"
+harvest_item_id = "potato"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=440306597]
 texture = ExtResource("2_18evx")
