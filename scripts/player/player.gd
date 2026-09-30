@@ -6,10 +6,6 @@ extends CharacterBody2D
 
 
 func _physics_process(_delta: float) -> void:
-	if Inventory.is_open:
-		velocity = Vector2.ZERO
-		return
-
 	var direction := Input.get_vector(
 		"move_left",
 		"move_right",
@@ -22,31 +18,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Inventory.is_open:
-		return
-
 	if event.is_action_pressed("interact"):
 		interact()
-
-	if event.is_action_pressed("tool_none"):
-		ToolManager.select_tool(ToolManager.Tool.NONE)
-
-	elif event.is_action_pressed("tool_axe"):
-		ToolManager.select_tool(ToolManager.Tool.AXE)
-
-	elif event.is_action_pressed("tool_hoe"):
-		ToolManager.select_tool(ToolManager.Tool.HOE)
-
-	elif event.is_action_pressed("tool_watering_can"):
-		ToolManager.select_tool(ToolManager.Tool.WATERING_CAN)
-
-	elif event.is_action_pressed("tool_shovel"):
-		ToolManager.select_tool(ToolManager.Tool.SHOVEL)
-
-	if event.is_action_pressed("crop_potato"):
-		CropManager.select_crop(CropManager.CropType.POTATO)
-	elif event.is_action_pressed("crop_carrot"):
-		CropManager.select_crop(CropManager.CropType.CARROT)
 
 
 func interact() -> void:

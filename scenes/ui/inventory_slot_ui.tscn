@@ -2,9 +2,22 @@
 
 [ext_resource type="Script" uid="uid://r1kp46k0rapj" path="res://scripts/ui/inventory_slot_ui.gd" id="1_x57yu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyky5"]
+bg_color = Color(0.20334122, 0.23385602, 0.37066287, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
 [node name="InventorySlotUi" type="PanelContainer" unique_id=780391834]
 custom_minimum_size = Vector2(64, 64)
 script = ExtResource("1_x57yu")
+
+[node name="SelectionBorder" type="Panel" parent="." unique_id=607454138]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eyky5")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1079226203]
 layout_mode = 2
@@ -34,3 +47,8 @@ offset_bottom = 52.0
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="ShortcutLabel" type="Label" parent="MarginContainer/SlotContent" unique_id=1680789123]
+layout_mode = 0
+offset_right = 52.0
+offset_bottom = 52.0

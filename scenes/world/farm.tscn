@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://kw0w8qd1ct57" path="res://scenes/objects/world_item.tscn" id="7_y42rm"]
 
 [node name="Farm" type="Node2D" unique_id=2005990462]
+metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="Player" parent="." unique_id=749195724 instance=ExtResource("1_krvku")]
 position = Vector2(62, 57)
@@ -25,14 +26,40 @@ position = Vector2(327, 252)
 [node name="WorldItem" parent="." unique_id=72825659 instance=ExtResource("7_y42rm")]
 position = Vector2(77, 244)
 
-[node name="HUD" parent="." unique_id=1761938174 instance=ExtResource("5_52ivh")]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1726977107]
+
+[node name="ScreenUI" type="Control" parent="UI" unique_id=501007462]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" parent="UI/ScreenUI" unique_id=1761938174 instance=ExtResource("5_52ivh")]
+layout_mode = 1
 offset_left = 964.0
 offset_right = 964.0
 
-[node name="InventoryUi" parent="." unique_id=1983313242 instance=ExtResource("5_rheot")]
-offset_left = 482.0
-offset_right = 763.0
-offset_bottom = 119.0
+[node name="HotbarArea" type="MarginContainer" parent="UI/ScreenUI" unique_id=193816815]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 15
+
+[node name="BottomContainer" type="VBoxContainer" parent="UI/ScreenUI/HotbarArea" unique_id=633524477]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/ScreenUI/HotbarArea/BottomContainer" unique_id=2041697166]
+layout_mode = 2
+
+[node name="InventoryUi" parent="UI/ScreenUI/HotbarArea/BottomContainer/CenterContainer" unique_id=1983313242 instance=ExtResource("5_rheot")]
+layout_mode = 2
+offset_transform_enabled = true
 
 [node name="FarmPlot" parent="." unique_id=1629488635 instance=ExtResource("7_slgxh")]
 position = Vector2(501, 233)

@@ -1,9 +1,11 @@
 extends Node
 
 signal inventory_changed
+signal selected_slot_changed(index: int)
 
 const MAX_SLOTS: int = 10
 
+var selected_slot_index: int = 0
 var slots: Array[InventorySlot] = []
 var is_open: bool = false
 
@@ -17,7 +19,7 @@ var item_database: Dictionary = {
 func _ready() -> void:
 	add_item("potato", 5)
 	add_item("carrot", 15)
-	add_item("wood", 160)
+	add_item("wood", 20)
 
 
 func add_item(item_id: String, amount: int = 1) -> int:
@@ -100,3 +102,14 @@ func remove_item(item_id: String, amount: int = 1) -> bool:
 
 	inventory_changed.emit()
 	return true
+
+
+func select_slot(index: int) -> void:
+	if index < 0 or index >= MAX_SLOTS:
+		return
+
+	selected_slot_index = index
+
+	print("Valgt hotbar-slot: ", index + 1)
+
+	selected_slot_changed.emit(index)
