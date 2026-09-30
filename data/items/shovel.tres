@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://caa7bppm3abxl"]
+
+[ext_resource type="Texture2D" uid="uid://d0t48ae80isjt" path="res://assets/items/icons/shovel.png" id="1_76q58"]
+[ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_oyy78"]
+
+[resource]
+script = ExtResource("1_oyy78")
+item_id = "shovel"
+display_name = "Spade"
+max_stack = 1
+icon = ExtResource("1_76q58")
+item_type = 2
+tool_type = 4
+metadata/_custom_type_script = "uid://c5ndfpwokovqg"

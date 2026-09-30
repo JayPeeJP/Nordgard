@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bgrr3nollf1k0"]
+
+[ext_resource type="Texture2D" uid="uid://cq3o5rbkhdwvv" path="res://assets/items/icons/watering_can.png" id="1_khya3"]
+[ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_q2cdq"]
+
+[resource]
+script = ExtResource("1_q2cdq")
+item_id = "watering_can"
+display_name = "Vannkanne"
+max_stack = 1
+icon = ExtResource("1_khya3")
+item_type = 2
+tool_type = 3
+metadata/_custom_type_script = "uid://c5ndfpwokovqg"

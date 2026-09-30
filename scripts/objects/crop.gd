@@ -170,7 +170,11 @@ func clear_crop() -> void:
 
 
 func drop_harvest(amount: int) -> void:
-	var item_data: ItemData = Inventory.item_database[harvest_item_id]
+	var item_data: ItemData = ItemDatabase.get_item(harvest_item_id)
+
+	if item_data == null:
+		print("Ukjent harvest item: ", harvest_item_id)
+		return
 
 	var world_item := WORLD_ITEM_SCENE.instantiate()
 

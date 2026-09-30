@@ -22,6 +22,7 @@ GameTime="*uid://cn27i1megc4th"
 Weather="*uid://bb46x8cmhkxom"
 ToolManager="*uid://3xke2g4qbbeo"
 CropManager="*uid://dqs3d2ct3b6xp"
+ItemDatabase="*uid://bplpblj38hlnw"
 
 [display]
 

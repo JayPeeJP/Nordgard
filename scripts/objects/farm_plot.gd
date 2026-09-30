@@ -80,8 +80,18 @@ func interact() -> void:
 		return
 
 	if current_crop == null:
-		var crop_data := CropManager.get_selected_crop_data()
+		var selected_item: ItemData = Inventory.get_selected_item()
 
+		if selected_item == null:
+			return
+
+		var crop_data: Dictionary = CropManager.get_crop_data_by_item_id(
+			selected_item.item_id
+		)
+
+		if crop_data.is_empty():
+			return
+		
 		plant_crop(
 			crop_data["scene"],
 			crop_data["item_id"],

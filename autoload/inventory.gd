@@ -9,25 +9,25 @@ var selected_slot_index: int = 0
 var slots: Array[InventorySlot] = []
 var is_open: bool = false
 
-var item_database: Dictionary = {
-	"potato": preload("res://data/items/potato.tres"),
-	"carrot": preload("res://data/items/carrot.tres"),
-	"wood": preload("res://data/items/wood.tres")
-}
-
 
 func _ready() -> void:
+	add_item("axe", 1)
+	add_item("hoe", 1)
+	add_item("watering_can", 1)
+	add_item("shovel", 1)
 	add_item("potato", 5)
 	add_item("carrot", 15)
 	add_item("wood", 20)
+	
+	update_selected_item()
 
 
 func add_item(item_id: String, amount: int = 1) -> int:
-	if not item_database.has(item_id):
+	var item: ItemData = ItemDatabase.get_item(item_id)
+
+	if item == null:
 		print("Ukjent item: ", item_id)
 		return amount
-
-	var item: ItemData = item_database[item_id]
 	var remaining := amount
 
 	# Fyll eksisterende stacks først
@@ -73,6 +73,22 @@ func get_amount(item_id: String) -> int:
 	return total
 
 
+func get_selected_slot() -> InventorySlot:
+	if selected_slot_index < 0 or selected_slot_index >= slots.size():
+		return null
+
+	return slots[selected_slot_index]
+
+
+func get_selected_item() -> ItemData:
+	var slot := get_selected_slot()
+
+	if slot == null:
+		return null
+
+	return slot.item
+
+
 func has_item(item_id: String, amount: int = 1) -> bool:
 	return get_amount(item_id) >= amount
 
@@ -110,6 +126,49 @@ func select_slot(index: int) -> void:
 
 	selected_slot_index = index
 
+	update_selected_item()
+
 	print("Valgt hotbar-slot: ", index + 1)
 
 	selected_slot_changed.emit(index)
+
+
+func update_selected_item() -> void:
+	var slot := get_selected_slot()
+
+	if slot == null:
+		ToolManager.select_tool(ToolManager.Tool.NONE)
+		return
+
+	var item := slot.item
+
+	# Verktøy
+	if item.item_type == ItemData.ItemType.TOOL:
+		match item.tool_type:
+			ItemData.ToolType.AXE:
+				ToolManager.select_tool(ToolManager.Tool.AXE)
+
+			ItemData.ToolType.HOE:
+				ToolManager.select_tool(ToolManager.Tool.HOE)
+
+			ItemData.ToolType.WATERING_CAN:
+				ToolManager.select_tool(ToolManager.Tool.WATERING_CAN)
+
+			ItemData.ToolType.SHOVEL:
+				ToolManager.select_tool(ToolManager.Tool.SHOVEL)
+
+			_:
+				ToolManager.select_tool(ToolManager.Tool.NONE)
+
+		return
+
+	# Ikke et verktøy
+	ToolManager.select_tool(ToolManager.Tool.NONE)
+
+	# Avlinger
+	match item.item_id:
+		"potato":
+			CropManager.select_crop(CropManager.CropType.POTATO)
+
+		"carrot":
+			CropManager.select_crop(CropManager.CropType.CARROT)

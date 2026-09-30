@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dupuk41fd7tdk"]
 
 [ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_6g0dw"]
+[ext_resource type="PackedScene" uid="uid://dh1n0f7arexw1" path="res://scenes/objects/carrot_crop.tscn" id="1_ba1um"]
 [ext_resource type="Texture2D" uid="uid://v0hlt5jw6e1" path="res://assets/items/icons/carrot.png" id="1_cmqf5"]
 
 [resource]
@@ -9,4 +10,5 @@ item_id = "carrot"
 display_name = "Gulrot"
 max_stack = 20
 icon = ExtResource("1_cmqf5")
+crop_scene = ExtResource("1_ba1um")
 metadata/_custom_type_script = "uid://c5ndfpwokovqg"

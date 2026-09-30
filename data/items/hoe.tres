@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://boibkx0h5dto5"]
+
+[ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_elag1"]
+[ext_resource type="Texture2D" uid="uid://blpma4tn7dqt3" path="res://assets/items/icons/hoe.png" id="1_tfyuf"]
+
+[resource]
+script = ExtResource("1_elag1")
+item_id = "hoe"
+display_name = "Hakke"
+max_stack = 1
+icon = ExtResource("1_tfyuf")
+item_type = 2
+tool_type = 2
+metadata/_custom_type_script = "uid://c5ndfpwokovqg"

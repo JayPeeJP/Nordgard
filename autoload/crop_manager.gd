@@ -24,6 +24,14 @@ var crop_data := {
 }
 
 
+func get_crop_data_by_item_id(item_id: String) -> Dictionary:
+	for data in crop_data.values():
+		if data["item_id"] == item_id:
+			return data
+
+	return {}
+
+
 func select_crop(crop: CropType) -> void:
 	selected_crop = crop
 

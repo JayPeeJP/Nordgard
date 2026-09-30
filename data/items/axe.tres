@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bgg1o3pdm2v2n"]
+
+[ext_resource type="Texture2D" uid="uid://cjgstr388v437" path="res://assets/items/icons/axe.png" id="1_74bhg"]
+[ext_resource type="Script" uid="uid://c5ndfpwokovqg" path="res://scripts/items/item_data.gd" id="1_e8x3d"]
+
+[resource]
+script = ExtResource("1_e8x3d")
+item_id = "axe"
+display_name = "Øks"
+max_stack = 1
+icon = ExtResource("1_74bhg")
+item_type = 2
+tool_type = 1
+metadata/_custom_type_script = "uid://c5ndfpwokovqg"
